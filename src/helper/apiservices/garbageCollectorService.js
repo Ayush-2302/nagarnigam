@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const getCurrentUserDetails = async () => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/api/garbagecollector/currentuser`
+      `https://nagarnigam-peach.vercel.app/api/garbagecollector/currentuser`
     );
 
     return response.data.user;
@@ -17,7 +17,7 @@ export const getCurrentUserDetails = async () => {
 export const loginGarbageCollectorDetails = async (crendtials) => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/garbagecollector/login`,
+      `https://nagarnigam-peach.vercel.app/api/garbagecollector/login`,
       crendtials
     );
     toast.success("Login sucessfully");
@@ -32,7 +32,7 @@ export const loginGarbageCollectorDetails = async (crendtials) => {
 export const signupGarbageCollectorDetails = async (crendtials) => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/garbagecollector/signup`,
+      `https://nagarnigam-peach.vercel.app/api/garbagecollector/signup`,
       crendtials
     );
     toast.success("Signup sucessfully");
@@ -47,7 +47,7 @@ export const signupGarbageCollectorDetails = async (crendtials) => {
 export const garbageCollectorLogout = async () => {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/garbagecollector/logout`
+      `https://nagarnigam-peach.vercel.app/api/garbagecollector/logout`
     );
     toast.warning("Logout sucessfully");
     return response.data;

@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchUserDetails = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/api/noorpuruser/${id}`
+      `https://nagarnigam-peach.vercel.app/api/noorpuruser/${id}`
     );
     const data = response.data;
     return data;

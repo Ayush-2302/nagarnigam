@@ -67,8 +67,9 @@ function Tabssection() {
         </ul>
       </div>
       <div id="default-tab-content">
-        {filteredTabs.map((tab) => (
+        {filteredTabs.map((tab, index) => (
           <div
+            key={index}
             className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
             id={tab.id}
             role="tabpanel"

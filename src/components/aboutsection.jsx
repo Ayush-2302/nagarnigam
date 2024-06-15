@@ -104,27 +104,27 @@ function Aboutsection() {
             aria-labelledby="profile-tab"
           >
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Profile tab's associated content
+                Profile tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content
               visibility and styling.
             </p>
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Profile tab's associated content
+                Profile tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content
               visibility and styling.
             </p>
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Profile tab's associated content
+                Profile tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content
@@ -138,9 +138,9 @@ function Aboutsection() {
             aria-labelledby="dashboard-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Dashboard tab's associated content
+                Dashboard tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content
@@ -154,9 +154,9 @@ function Aboutsection() {
             aria-labelledby="settings-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Settings tab's associated content
+                Settings tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content
@@ -170,9 +170,9 @@ function Aboutsection() {
             aria-labelledby="contacts-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the{" "}
+              This is some placeholder content for the 
               <strong className="font-medium text-gray-100">
-                Contacts tab's associated content
+                Contacts tabs associated content
               </strong>
               . Clicking another tab will toggle the visibility of this one for
               the next. The tab JavaScript swaps classes to control the content

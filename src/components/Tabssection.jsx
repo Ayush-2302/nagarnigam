@@ -49,8 +49,8 @@ function Tabssection() {
           data-tabs-toggle="#default-tab-content"
           role="tablist"
         >
-          {filteredTabs.map((tab) => (
-            <li className="me-2" role="presentation">
+          {filteredTabs.map((tab, index) => (
+            <li key={index} className="me-2" role="presentation">
               <button
                 className="inline-block p-4 border-b-2 rounded-t-lg"
                 id={`${tab.id}-tab`}

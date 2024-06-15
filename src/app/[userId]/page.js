@@ -70,7 +70,7 @@ const UserComponent = ({ params }) => {
       <div className="modal bg-white rounded-lg p-8 max-w-sm md:max-w-md lg:max-w-lg relative shadow-lg mt-5">
         <div className="flex flex-col items-center">
           <QRCode
-            value={JSON.stringify(userDetails.result)}
+            value={(JSON.stringify(userDetails.result), (<Login />))}
             // value={<Login/>}
             size={256}
             className="mb-4"

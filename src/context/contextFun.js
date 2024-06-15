@@ -1,6 +1,6 @@
 "use client";
 import { getCurrentUserDetails } from "@/helper/apiservices/garbageCollectorService";
-import React, { createContext, use, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 const newContext = createContext();
 
 const ContextFun = ({ children }) => {

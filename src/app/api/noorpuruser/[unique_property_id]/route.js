@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import connectMongo from "@/db/dbConfig";
-import moongoose from "moongoose";
 connectMongo();
 
 export const GET = async (req, { params }) => {

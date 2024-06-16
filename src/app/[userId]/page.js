@@ -2,7 +2,6 @@
 import fetchUserDetails from "@/helper/apiservices/fetchUserDetails";
 import QRCode from "qrcode.react";
 import React, { useEffect, useState } from "react";
-import Login from "../login/Login";
 
 const UserComponent = ({ params }) => {
   const [userDetails, setUserDetails] = useState([]);
@@ -70,8 +69,8 @@ const UserComponent = ({ params }) => {
       <div className="modal bg-white rounded-lg p-8 max-w-sm md:max-w-md lg:max-w-lg relative shadow-lg mt-5">
         <div className="flex flex-col items-center">
           <QRCode
-            value={(JSON.stringify(userDetails.result), (<Login />))}
-            // value={<Login/>}
+            // value={(JSON.stringify(userDetails.result), (<Login />))}
+            value={"https://nagarnigam-peach.vercel.app/login"}
             size={256}
             className="mb-4"
           />

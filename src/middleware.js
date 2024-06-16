@@ -1,8 +1,10 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
-  const authToken = request.cookies.get("authToken")?.value;
-  // console.log(authToken, "midware Authtoken");
+  const cookiesHeader = cookies();
+  const authToken = cookiesHeader.get("authToken")?.value;
+  console.log(authToken);
 
   if (request.nextUrl.pathname.startsWith("/garbagecollectordash")) {
     if (!authToken) {

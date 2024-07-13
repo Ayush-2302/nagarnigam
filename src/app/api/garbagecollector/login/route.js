@@ -1,7 +1,8 @@
-import connectMongo from "@/db/dbConfig";
+import connectMongo from "@/db/db";
 import User from "@/models/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 connectMongo();
 
@@ -13,7 +14,9 @@ export const POST = async (req) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return NextResponse.json("user not found with this email", { status: 500 });
+      return NextResponse.json("user not found with this email", {
+        status: 500,
+      });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -27,15 +30,20 @@ export const POST = async (req) => {
       { authToken, success: true },
       { status: 200 }
     );
-    response.cookies.set("authToken", authToken, {
-      expiresIn: "1d",
+     cookies().set("authToken", authToken, {
       httpOnly: true,
+      maxAge: 24 * 60 * 60 * 10000,
     });
+
+    // response.cookies.set("authToken", authToken, {
+    //   httpOnly: true,
+    //   maxAge: 24 * 60 * 60 * 10000,
+    // });
     return response;
   } catch (error) {
     console.log(error);
     return NextResponse.json(
-      { error: error.message, success: false },
+      { error: "Internal Server Issue", success: false },
       { status: 500 }
     );
   }

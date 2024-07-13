@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { signupGarbageCollectorDetails } from "@/helper/apiservices/garbageCollectorService";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Signup = () => {
   const route = useRouter();
@@ -64,17 +65,19 @@ const Signup = () => {
     if (response) {
       route.push("/login");
       resetForm();
-      console.log(response.data, "tarun");
     }
   };
 
+  const designer_life = "/undraw_designer_life.svg";
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="flex flex-col gap-4  md:flex-row lg:w-4/5 w-11/12 h-4/5 mb-2 lg:h-auto border border-gray-300 rounded-lg overflow-hidden justify-center shadow-xl">
+      <div className="flex flex-col gap-4  md:flex-row lg:w-4/5 w-11/12 h-4/5 mb-2 lg:h-auto m-10 border border-gray-300 rounded-lg overflow-hidden justify-center shadow-xl">
         <div className="md:block md:w-1/2 ml-2">
-          <img
-            src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg"
-            className="w-full h-full  lg:object-fit "
+          <Image
+            src={designer_life}
+            width={500} 
+            height={400} 
             alt="Designer Life"
           />
         </div>

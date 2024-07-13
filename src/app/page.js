@@ -1,16 +1,18 @@
 "use client";
-import CrouselHome2 from "@/components/CrouselHome2";
+import Events from "@/components/Events";
 import ImageBioSection from "@/components/ImageBioSection";
 import QuickLinks from "@/components/QuickLinks";
+import Sectionpeople from "@/components/Sectionpeople";
 import SocialAccountsProfileFrames from "@/components/SocialAccountsProfileFrames";
 import Swiper from "@/components/Swiper";
 
 export default function Home() {
   return (
-    <div className=" space-y-10">
+    <div className=" gap-10 flex-col flex">
       <Swiper />
       <ImageBioSection />
-      <CrouselHome2 />
+      <Sectionpeople />
+      <Events />
       <QuickLinks />
       <SocialAccountsProfileFrames />
     </div>

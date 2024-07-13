@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import User from "@/models/user";
-import connectMongo from "@/db/dbConfig";
+import connectMongo from "@/db/db";
 connectMongo();
 
 export const POST = async (req) => {
   try {
     const { name, email, password, role } = await req.json();
-    console.log(name);
 
-    // Ensure that the request has all the required fields
     if (!name || !email || !password || !role) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -18,7 +16,6 @@ export const POST = async (req) => {
     }
 
     const genSalt = 10;
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, genSalt);
 
     const newUser = await new User({
@@ -27,12 +24,15 @@ export const POST = async (req) => {
       password: hashedPassword,
       role,
     });
-    await newUser.save();
-
-    console.log(User);
-    return NextResponse.json({ User: newUser }, { status: 200 });
+    const saved_user = await newUser.save();
+    return NextResponse.json(
+      { User: saved_user, success: false },
+      { status: 200 }
+    );
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Issue", success: true },
+      { status: 500 }
+    );
   }
 };

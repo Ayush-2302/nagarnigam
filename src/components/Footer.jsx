@@ -156,7 +156,7 @@ const Footer = () => {
                   </span>
                   <span>
                     Mobile App : This mobile application is coming soon,
-                    developed by Sest Pvt. Ltd.
+                    developed by Sest InfoTech Pvt. Ltd.
                   </span>
                 </Link>
               </li>

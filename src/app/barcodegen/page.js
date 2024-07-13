@@ -1,10 +1,10 @@
 import React from "react";
-import Barcode from "./Barcode";
+import BarcodeGenerator from "./Barcode";
 
 const page = () => {
   return (
     <div>
-      <Barcode />
+      <BarcodeGenerator />
     </div>
   );
 };

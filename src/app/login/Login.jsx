@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { loginGarbageCollectorDetails } from "@/helper/apiservices/garbageCollectorService";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Login = () => {
   const route = useRouter();
@@ -31,8 +32,7 @@ const Login = () => {
     try {
       const response = await loginGarbageCollectorDetails(values);
       if (response.data) {
-        // location.reload();
-        route.push("/garbagecollectordash");
+        route.push("/dashboard/garbagecollector");
         resetForm();
       }
     } catch (error) {
@@ -41,13 +41,16 @@ const Login = () => {
     }
   };
 
+  const designer_life = "/undraw_designer_life.svg";
+
   return (
     <div className="flex justify-center items-center bg-gray-100 min-h-screen ">
-      <div className="flex flex-col md:flex-row w-4/5 h-11/12 lg:h-auto border gap-4 border-gray-300 rounded-lg overflow-hidden justify-center shadow-xl">
+      <div className="flex flex-col md:flex-row w-4/5 min-h-96 m-10  lg:h-auto border gap-4 border-gray-300 rounded-lg overflow-hidden justify-center shadow-xl">
         <div className="md:block md:w-1/2 ml-2">
-          <img
-            src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg"
-            className="w-full h-full object-fill"
+          <Image
+            src={designer_life}
+            width={500}
+            height={400}
             alt="Designer Life"
           />
         </div>

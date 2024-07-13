@@ -67,8 +67,6 @@ const ContactNewForm = () => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    // const response = await Contactus(values);
-    console.log(values,"sasasa");
     resetForm();
   };
 

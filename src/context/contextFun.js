@@ -1,33 +1,50 @@
 "use client";
-import { getCurrentUserDetails } from "@/helper/apiservices/garbageCollectorService";
-import React, { createContext, useState } from "react";
+import {
+  garbageCollectorLogout,
+  getCurrentUserDetails,
+} from "@/helper/apiservices/garbageCollectorService";
+import { useRouter } from "next/navigation";
+import React, { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 const newContext = createContext();
 
 const ContextFun = ({ children }) => {
-  const [garbageUser, setGarbageUser] = useState([]);
-
+  const [garbageUser, setGarbageUser] = useState(null);
+  const router = useRouter();
   const load = async () => {
-    try {
-      const currUser = await getCurrentUserDetails();
-      console.log(currUser, "current user");
-
-      setGarbageUser({ ...currUser });
-    } catch (error) {
-      console.log(error);
-      setGarbageUser([]);
+    const currUser = await getCurrentUserDetails();
+    console.log(currUser);
+    if (currUser) {
+      setGarbageUser(currUser.user);
+    } else {
+      console.warn("user not found");
+      
     }
   };
 
-  // useEffect(() => {
-  //   load();
-  // }, []);
+  const handleLogout = async () => {
+    try {
+      const result = await garbageCollectorLogout();
+      if (result.success === true) {
+        router.push("/login");
+        setGarbageUser(null);
+      }
+    } catch (error) {
+      toast.error("logout error");
+    }
+  };
+
+  useEffect(() => {
+    load();
+  }, []);
 
   return (
-    <div>
-      <newContext.Provider value={{ garbageUser, setGarbageUser, load }}>
-        {children}
-      </newContext.Provider>
-    </div>
+    <newContext.Provider
+      value={{ garbageUser, handleLogout, setGarbageUser, load }}
+    >
+      {children}
+    </newContext.Provider>
   );
 };
 

@@ -14,7 +14,7 @@ function Aboutsection() {
             className="rounded-lg shadow-lg"
             src={aboutImage}
             alt="About us"
-            width={500} 
+            width={500}
             height={300}
           />
         </div>
@@ -104,7 +104,7 @@ function Aboutsection() {
             aria-labelledby="profile-tab"
           >
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Profile tabs associated content
               </strong>
@@ -113,7 +113,7 @@ function Aboutsection() {
               visibility and styling.
             </p>
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Profile tabs associated content
               </strong>
@@ -122,7 +122,7 @@ function Aboutsection() {
               visibility and styling.
             </p>
             <p className="text-sm bg-gray-800 mb-2 p-3 text-gray-300 rounded-md">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Profile tabs associated content
               </strong>
@@ -138,7 +138,7 @@ function Aboutsection() {
             aria-labelledby="dashboard-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Dashboard tabs associated content
               </strong>
@@ -154,7 +154,7 @@ function Aboutsection() {
             aria-labelledby="settings-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Settings tabs associated content
               </strong>
@@ -170,7 +170,7 @@ function Aboutsection() {
             aria-labelledby="contacts-tab"
           >
             <p className="text-sm text-gray-300">
-              This is some placeholder content for the 
+              This is some placeholder content for the
               <strong className="font-medium text-gray-100">
                 Contacts tabs associated content
               </strong>

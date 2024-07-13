@@ -2,7 +2,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { loginGarbageCollectorDetails } from "@/helper/apiservices/garbageCollectorService";
+import { complainForm } from "@/helper/apiservices/ContactDetails";
 
 const Lodgecomplaint = () => {
   const field = [
@@ -77,8 +77,9 @@ const Lodgecomplaint = () => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    // const response = await loginGarbageCollectorDetails(values);
-    console.log(values);
+    const response = await complainForm(values);
+    console.log({ values });
+    console.log({ response });
     resetForm();
   };
   return (
@@ -89,9 +90,7 @@ const Lodgecomplaint = () => {
       className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-black bg-opacity-80 "
     >
       <div className="relative  p-5 md:p-4 w-full max-w-2xl md:max-w-5xl max-h-full">
-        {/* <!-- Modal content --> */}
         <div className="relative bg-white p-5 md:p-0 rounded-lg shadow">
-          {/* <!-- Modal header --> */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t bg-slate-200">
             <h3 className="text-xl font-semibold text-gray-900 ">
               Lodge your complaints to Noorpur nagar nigam
@@ -119,14 +118,12 @@ const Lodgecomplaint = () => {
               <span className="sr-only">Close modal</span>
             </button>
           </div>
-          {/* modal form header */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               Complaint And Grievance Details
             </h3>
           </div>
 
-          {/* <!-- Modal body --> */}
           <Formik
             initialValues={defaultValue}
             validationSchema={validationSchema}

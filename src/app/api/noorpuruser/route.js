@@ -1,18 +1,34 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-import connectMongo from "@/db/dbConfig";
-import UserDetails from "@/models/userDetailsSchema ";
+// import UserDetails from "@/models/userDetailsSchema ";
+import connectMongo from "@/db/db";
 
 connectMongo();
 export const GET = async () => {
   try {
-    const fetch_data = mongoose.connection.db.collection("user_details");
-    const result = await fetch_data.find({}).toArray();
+    const fetch_data = await mongoose.connection.db.collection("user_details");
+    const result = await fetch_data.find({}).sort({ updatedAt: -1 }).toArray();
 
-    return NextResponse.json({ result, success: true }, { status: 200 });
+    const totalUser = await fetch_data.countDocuments({});
+
+    const countUserFalse = await fetch_data.countDocuments({
+      Garbage_Collected: false,
+    });
+
+    const countUserTrue = await fetch_data.countDocuments({
+      Garbage_Collected: true,
+    });
+
+    return NextResponse.json(
+      { totalUser, countUserFalse, countUserTrue, result, success: true },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error fetching users:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Issue" },
+      { status: 500 }
+    );
   }
 };
 // export const POST = async (req) => {

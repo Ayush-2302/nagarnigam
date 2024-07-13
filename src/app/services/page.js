@@ -1,10 +1,10 @@
 import React from 'react'
-import Downloads from './Services'
+import OnlineServices from './Services'
 
 const page = () => {
   return (
     <div>
-      <Downloads/>
+      <OnlineServices/>
     </div>
   )
 }

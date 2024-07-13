@@ -2,11 +2,10 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
-  const cookiesHeader = cookies();
-  const authToken = cookiesHeader.get("authToken")?.value;
-  console.log(authToken);
+  const cookieStore = cookies();
+  const authToken = cookieStore.get("authToken")?.value;
 
-  if (request.nextUrl.pathname.startsWith("/garbagecollectordash")) {
+  if (request.nextUrl.pathname.startsWith("/dashboard/garbagecollector")) {
     if (!authToken) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
@@ -17,6 +16,7 @@ export const middleware = (request) => {
       return NextResponse.redirect(new URL("/", request.url));
     }
   }
+
   if (request.nextUrl.pathname.startsWith("/login")) {
     if (authToken) {
       return NextResponse.redirect(new URL("/", request.url));

@@ -1,37 +1,29 @@
+import connectMongo from "@/db/db";
 import User from "@/models/user";
 import jwt from "jsonwebtoken";
-import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+const JWT_SECRET = "jwtTarunWebToken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "jwtTarunWebToken";
+connectMongo();
 
 export const GET = async (req) => {
+  const cookieStore = cookies();
+  const authToken = cookieStore.get("authToken")?.value;
   try {
-    const cookiesHeader = cookies();
-    const authToken = cookiesHeader.get("authToken")?.value;
-
+    // const authToken = await req.cookies.get("authToken")?.value;
+    console.log({ authTokenroute: authToken });
     if (!authToken) {
-      return NextResponse.json(
-        { error: "No token found", success: false },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: "No token found" }, { status: 401 });
     }
-
+    console.log("hellow");
     const data = jwt.verify(authToken, JWT_SECRET);
     const user = await User.findById(data.id).select("-password");
-
-    if (!user) {
-      return NextResponse.json(
-        { error: "User not found", success: false },
-        { status: 404 }
-      );
-    }
-
     return NextResponse.json({ user, success: true }, { status: 200 });
   } catch (error) {
-    console.error("Error:", error.message);
+    console.log(error);
     return NextResponse.json(
-      { error: "Invalid token or server error", success: false },
+      { error: "Internal Server Issue", success: false },
       { status: 500 }
     );
   }

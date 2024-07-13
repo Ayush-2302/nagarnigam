@@ -42,7 +42,7 @@ const CrouselHome = () => {
               width={400} 
               height={300}
               className="w-full h-full object-cover rounded-lg"
-              alt={`Slide ${index + 1}`}
+              alt={`Slide`}
             />
           </SwiperSlide>
         ))}

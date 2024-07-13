@@ -25,7 +25,7 @@ export const GET = async (req, { params }) => {
       );
     }
 
-    const fetch_data =await mongoose.connection.db.collection("user_details");
+    const fetch_data = await mongoose.connection.db.collection("user_details");
 
     const result = await fetch_data.findOne({
       Unique_Property_ID: unique_property_id,
@@ -42,7 +42,7 @@ export const GET = async (req, { params }) => {
   } catch (error) {
     console.error("Error fetching property:", error);
     return NextResponse.json(
-      { error: "Internal Server Issue", success: false,error },
+      { error: "Internal Server Issue", success: false },
       { status: 500 }
     );
   }
@@ -50,7 +50,7 @@ export const GET = async (req, { params }) => {
 
 export const PUT = async (req, { params }) => {
   try {
-    const { unique_property_id } =await params;
+    const { unique_property_id } = await params;
 
     if (!unique_property_id) {
       return NextResponse.json(

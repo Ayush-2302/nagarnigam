@@ -76,7 +76,7 @@ const UserComponent = ({ params }) => {
           <div className="flex flex-col items-center">
             <QRCode
               // value={(JSON.stringify(userDetails.result))}
-              value={`https://noorpurnn.vercel.app/dashboard/${params.userId}/updateuser`}
+              value={`https://nagarnigam-peach.vercel.app/dashboard/${params.userId}/updateuser`}
               size={256}
               className="mb-4"
             />

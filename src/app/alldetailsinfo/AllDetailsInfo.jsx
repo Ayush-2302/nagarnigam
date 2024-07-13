@@ -1,4 +1,4 @@
-\"use client";
+"use client";
 import React, { useEffect, useState } from "react";
 import { fetchAllUserDetails } from "@/helper/apiservices/fetchUserDetails";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
